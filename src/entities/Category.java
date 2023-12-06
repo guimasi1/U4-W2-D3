@@ -1,2 +1,8 @@
-package entities;public enum category {
+package entities;
+
+public enum Category {
+    BOOKS,
+    BABY,
+    BOYS,
+
 }
