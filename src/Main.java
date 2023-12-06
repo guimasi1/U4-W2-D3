@@ -135,9 +135,11 @@ public class Main {
         // predicato che verifica che sia prima del primo aprile.
         Predicate<Order> isBeforeApril1 = order -> order.getOrderDate().isBefore(april1);
         Predicate<Customer> isCustomerTier2 = customer -> customer.getTier() == 2;
-
+        // ordini filtrati in base alla data
         List<Order> filteredOrdersBasedOnDate = allOrders.stream().filter(isAfterFeb1.and(isBeforeApril1)).toList();
+        // ordini filtrati in base al tier del cliente
         List<Order> filterOrdersBasedOnTier = filteredOrdersBasedOnDate.stream().filter(order -> isCustomerTier2.test(order.getCustomer())).toList();
+        // prodotti filtrati in base ad entrambe le condizioni (data e livello cliente)
         List<Product> filteredProductsBasedOnDateAndTier = filterOrdersBasedOnTier.stream().flatMap(order -> order.getProducts().stream()).toList();
 
         System.out.println("Prodotti filtrati in base al tier del cliente e la data.");
