@@ -26,9 +26,9 @@ public class Main {
         Predicate<Order> hasBabyProduct = order -> order.getProducts().stream().anyMatch(product -> product.getCategory().equals("Baby"));
 
 
-        Supplier<Product> booksSupplier = () -> new Product("Libro", "Books", randomNumbers.get());
-        Supplier<Product> babyProdsSupplier = () -> new Product("GiocoX", "Baby", randomNumbers.get());
-        Supplier<Product> boysProdsSupplier = () -> new Product("Camicia", "Boys", randomNumbers.get());
+        Supplier<Product> booksSupplier = () -> new Product("Libro", Category.Books.toString(), randomNumbers.get());
+        Supplier<Product> babyProdsSupplier = () -> new Product("GiocoX", Category.Baby.toString(), randomNumbers.get());
+        Supplier<Product> boysProdsSupplier = () -> new Product("Camicia", Category.Boys.toString(), randomNumbers.get());
 
         // CLIENTI
         Supplier<Customer> customerSupplier = () -> new Customer("Pippo", 1);
